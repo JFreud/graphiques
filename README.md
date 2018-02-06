@@ -8,6 +8,25 @@ DATE | AIM
 2/2  | []
 2/5  | []
 
+## 2.1.18
+
+### Image File Formats
+- Uncompressed formats contain data for each pixel (BMP, TIFF, RAW)
+- Compressed formats use a compression algorithm to minimize file size
+- Lossless compression algorithms contain enough information to exactly recreate the original image (PNG (Portable Network Graphics), GIF (Graphics Interchange Format)
+- Lossy compression algorithms do not retain all the details of the original image, JPEG (Joint Photographic Experts Group)
+- PPM (Portable PixMAP)
+  1. Lossless, uncompressed raster format
+  2. Pixel data is represented by RGB triplets in either ASCII or binary
+  3. All whitespace is equivalent
+  4. Example file:
+    1. P3
+    2. 4 3 (dimensions)
+    3. 255 (max value; if not 255, it will scale)
+    4. 255 0 0   255 0 0   255 0 0   255 0 0
+       0 255 0   0 255 0   0 255 0   0 255 0
+       0 0 255   0 0 255   0 0 255   0 0 255
+
 ## 1.31.18 Peering into the Depths of Color
 - Electron gun screen gray color, shoot to energize for intensity
 ### Color Depth
@@ -25,3 +44,7 @@ size | color option
 ### Other Color Spaces
 - RGBA (RGB + alpha for transparency)
 - HSB (Hue, Saturation, Brightness)
+
+### Image File Formats
+- Raster: represent images as grid of pixels
+- Vector: represent images as series of drawing instructions (infinitely scalable)
