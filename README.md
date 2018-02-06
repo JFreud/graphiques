@@ -5,7 +5,7 @@
 DATE | AIM
 :---:| ---
 1/31 | []
-2/2  | [image-file-formats]
+2/2  | [Image File Formats](#image-file-formats)
 2/5  | []
 
 ## 2.1.18
