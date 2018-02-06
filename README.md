@@ -4,9 +4,12 @@
 ### Table of Contents
 DATE | AIM
 :---:| ---
-1/31 | []
+1/31 | [Peering into the Depths of Color](#13118-peering-into-the-depths-of-color)
 2/2  | [Image File Formats](#image-file-formats)
-2/5  | []
+2/5  | [Bresenham's Line Algorithm]()
+
+## 2.5.18 Bresenham's Line Algorithm
+
 
 ## 2.1.18
 
