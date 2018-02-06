@@ -6,10 +6,54 @@ DATE | AIM
 :---:| ---
 1/31 | [Peering into the Depths of Color](#13118-peering-into-the-depths-of-color)
 2/2  | [Image File Formats](#image-file-formats)
-2/5  | [Bresenham's Line Algorithm]()
+2/5  | [Bresenham's Line Algorithm](#2518-bresenhams-line-algorithm)
+2/6  | [More Lines](#2618-testing-the-midpoint)
 
+## 2.6.18 Testing the Midpoint
+
+### Continuing Bresenham
+- Will look at ways to optimize algorithm in future
+  - The less work the computer has to do, the faster the drawing goes
+
+### How do we tell if we're above or below? Test (x + 1, y + 1/2)
+  - y = mx + b -> mx - y + b = 0 -> (Δy)x - (Δx)y + (Δx)b
+    - A = Δy, B = -(Δx), C = (Δx)b
+    - 0 = Ax + By + C
+    - f(x, y) = Ax + By + C
+  - If on line, f(x, y) = 0
+    - if y-value above line, then f(x, y) < 0, since we're multiplying by -(Δx)
+    - if y-value below line, then f(x, y) > 0
+  - First draft Algorithm (x~0~, y~0~) -> (x~1~, y~1~)
+  - ` 
+    x = x~0~, y = y~0~
+    d = f(x + 1, y + 1/2)
+    while (x <= x~1~)
+      plot (x, y)
+      x++
+      if d > 0
+        y++
+      d = f(x + 1, y + 1/2)
+      `
+  -dub
+  
 ## 2.5.18 Bresenham's Line Algorithm
 
+### How to draw a line?
+- Pixels digital, not analog. We don't have all the numbers we do in math. Have to decide which pixel best approximates a line.
+- Use octants instead of quadrants
+- Assume drawing a line in octant I
+  - 0 < m < 1
+  - Rules:
+    - adjacent
+    - to the tight
+    - x >= y
+  - Pixel options:
+    - 1. (x+1, y+1)
+    - 2. (x+1, y)
+  - Use the midpoint; if line is below midpoint, then mostly in bottom square, if above then mostly in top.
+    - (x + 1, y + 1/2) above line -> draw lower pixel
+    - (x + 1, y + 1/2) below line -> draw upper pixel
+    - (x + 1, y + 1/2) ontop line -> draw either pixel
 
 ## 2.1.18
 
