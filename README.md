@@ -24,17 +24,15 @@ DATE | AIM
     - if y-value above line, then f(x, y) < 0, since we're multiplying by -(Δx)
     - if y-value below line, then f(x, y) > 0
   - First draft Algorithm (x~0~, y~0~) -> (x~1~, y~1~)
-  - ` 
-    x = x~0~, y = y~0~  
-    d = f(x + 1, y + 1/2)  
-    while (x <= x~1~)  
-      plot (x, y)  
-      x++  
-      if d > 0  
-        y++  
-      d = f(x + 1, y + 1/2)  
-      `
-  -dub
+    - x = x~0~, y = y~0~  
+    - d = f(x + 1, y + 1/2)  
+    - while (x <= x~1~)  
+        - plot (x, y)  
+        - x++  
+        - if d > 0  
+          - y++  
+        - d = f(x + 1, y + 1/2)  
+  -Room for improvement in function f
   
 ## 2.5.18 Bresenham's Line Algorithm
 
