@@ -23,16 +23,35 @@ DATE | AIM
   - If on line, f(x, y) = 0
     - if y-value above line, then f(x, y) < 0, since we're multiplying by -(Δx)
     - if y-value below line, then f(x, y) > 0
-  - First draft Algorithm (x<sub>0</sub>, y~0~) -> (x~1~, y~1~)
-    - x = x~0~, y = y~0~  
+  - First draft Algorithm (x<sub>0</sub>, y<sub>0</sub>) -> (x<sub>1</sub>, y<sub>1</sub>)
+    - x = x<sub>0</sub>, y = y<sub>0</sub>  
     - d = f(x + 1, y + 1/2)  
-    - while (x <= x~1~)  
+    - while (x <= x<sub>1</sub>)  
         - plot (x, y)  
         - x++  
         - if d > 0  
           - y++  
         - d = f(x + 1, y + 1/2)  
-  -Room for improvement in function f
+  - Room for improvement in function f
+    - when we add 1 to x: d = d + A
+    - when we add 1 to y: d = d + B
+    - so we don't actually have to do f every time
+  - Second draft Algorithm (x<sub>0</sub>, y<sub>0</sub>) -> (x<sub>1</sub>, y<sub>1</sub>)
+    - x = x<sub>0</sub>, y = y<sub>0</sub>  
+    - d = f(x + 1, y + 1/2)  
+    - while (x <= x<sub>1</sub>)  
+        - plot (x, y)  
+        - if d > 0
+          - y++
+          - d += B
+        - x++
+        - d += A
+    - d<sub>0</sub> = f(x<sub>0</sub> + 1, y<sub>0</sub> + 1/2)
+      - A(x<sub>0</sub> + 1) + B (y<sub>0</sub> + 1/2) + C
+      - Ax<sub>0</sub> + By<sub>0</sub> + C + A + 1/2 B
+      - d<sub>0</sub> = A + 1/2 B
+      - 2d<sub>0</sub> = 2A + B
+    - Replace in Third Draft
   
 ## 2.5.18 Bresenham's Line Algorithm
 
