@@ -25,14 +25,14 @@ DATE | AIM
     - if y-value below line, then f(x, y) > 0
   - First draft Algorithm (x~0~, y~0~) -> (x~1~, y~1~)
   - ` 
-    x = x~0~, y = y~0~
-    d = f(x + 1, y + 1/2)
-    while (x <= x~1~)
-      plot (x, y)
-      x++
-      if d > 0
-        y++
-      d = f(x + 1, y + 1/2)
+    x = x~0~, y = y~0~  
+    d = f(x + 1, y + 1/2)  
+    while (x <= x~1~)  
+      plot (x, y)  
+      x++  
+      if d > 0  
+        y++  
+      d = f(x + 1, y + 1/2)  
       `
   -dub
   
