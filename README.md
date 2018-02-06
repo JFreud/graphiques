@@ -23,7 +23,7 @@ DATE | AIM
   - If on line, f(x, y) = 0
     - if y-value above line, then f(x, y) < 0, since we're multiplying by -(Δx)
     - if y-value below line, then f(x, y) > 0
-  - First draft Algorithm (x~0~, y~0~) -> (x~1~, y~1~)
+  - First draft Algorithm (x<sub>0</sub>, y~0~) -> (x~1~, y~1~)
     - x = x~0~, y = y~0~  
     - d = f(x + 1, y + 1/2)  
     - while (x <= x~1~)  
