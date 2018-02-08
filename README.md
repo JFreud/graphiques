@@ -8,6 +8,7 @@ DATE | AIM
 2/2  | [Image File Formats](#image-file-formats)
 2/5  | [Bresenham's Line Algorithm](#2518-bresenhams-line-algorithm)
 2/6  | [More Lines](#2618-testing-the-midpoint)
+2/7  | [Even More](#other-octants)
 
 ## 2.6.18 Testing the Midpoint
 
@@ -52,6 +53,20 @@ DATE | AIM
       - d<sub>0</sub> = A + 1/2 B
       - 2d<sub>0</sub> = 2A + B
     - Replace in Third Draft
+      - d = 2A + B, d += 2B, d += 2A
+### Other Octants
+  - if octant II: 
+    - mp becomes (x + 1/2, y + 1) 
+    - d = A + 2B
+    - condition becomes if d < 0
+  - octant VIII
+    - mp becomes (x + 1, y - 1/2)
+    - d = 2A - B
+    - condition if d < 0
+  - only need octants I, II, VII, VIII (since line goes into other octants)
+  
+  
+  
   
 ## 2.5.18 Bresenham's Line Algorithm
 
