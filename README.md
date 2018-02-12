@@ -9,6 +9,25 @@ DATE | AIM
 2/5  | [Bresenham's Line Algorithm](#2518-bresenhams-line-algorithm)
 2/6  | [More Lines](#2618-testing-the-midpoint)
 2/7  | [Even More](#other-octants)
+2/12 | [Representing Image Data](#21218-representing-image-data)
+
+## 2.12.18 Representing Image Data
+- Good way to keep track of all points in your image?
+  - Array of Points
+  - Map type thing of point and its connections
+  - n x n Matrix of Coordinates w/ 1 if connected and 0 if not
+- Edge List (matrix)
+  - Each point is added to a list such that every 2 points form a line
+  - P<sub>0</sub>P<sub>1</sub>, P<sub>2</sub>P<sub>3</sub>, ... , P<sub>n-1</sub>P<sub>n</sub>
+  - Triangle ABC: [A, C, A, B, B, C]
+  - This allows for disjoint shapes, just add the other edges to the list
+  - The downside is repeating a lot of values
+    - The answer is we don't care (storage is cheap!)
+  - If you think about it, they're two dimensional arrays
+  - Let's allow for z-coordinates at the start (add the values to the point)
+    - These become important for rotations
+    - Doesn't mean we have to plot z; we're still drawing 2-dimensionally
+  - Basis of storing images
 
 ## 2.6.18 Testing the Midpoint
 
