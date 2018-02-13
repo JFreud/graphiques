@@ -14,7 +14,7 @@ DATE | AIM
 
 ## 2.13.18 Matrix Multiplication
 - A x B ⋅ B x D => A x C
-  - # of rows in second matrix must be equal to the # of columns in the first
+  - number of rows in second matrix must be equal to the number of columns in the first
   - not commutative 
 - Calulation
   - take the dot product of each row in the first with each column in the second to find each entry in the product
