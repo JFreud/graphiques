@@ -10,6 +10,28 @@ DATE | AIM
 2/6  | [More Lines](#2618-testing-the-midpoint)
 2/7  | [Even More](#other-octants)
 2/12 | [Representing Image Data](#21218-representing-image-data)
+2/13 | [Matrix Math for Graphics](#21318-matrix-multiplication)
+
+## 2.13.18 Matrix Multiplication
+- A x B ⋅ B x D => A x C
+  - # of rows in second matrix must be equal to the # of columns in the first
+  - not commutative 
+- Calulation
+  - take the dot product of each row in the first with each column in the second to find each entry in the product
+- Multiplicative Identity
+  - M ⋅ I = M
+  - Square matrix with an all 1 diagonal and 0s everywhere else
+- Performing Transformations
+  - affine transformations; preserves the number of vertices and the orientation
+    - important for edge matrix--it's ordered and we don't want to lose points
+  - E: Edge matrix
+  - T: Transformation matrix (must be square)
+  - T ⋅ E, because we want to preserve number of points
+  - Translation
+    - (x, y, z) T<sub>(a, b, c)</sub>&rarr; (x+a, y+b, z+c)
+    - Can't add because we want an all-purpose transformation
+    - add a fourth term with value 1 to point matrix in order to add constants
+  
 
 ## 2.12.18 Representing Image Data
 - Good way to keep track of all points in your image?
