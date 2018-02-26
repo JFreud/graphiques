@@ -11,6 +11,22 @@ DATE | AIM
 2/7  | [Even More](#other-octants)
 2/12 | [Representing Image Data](#21218-representing-image-data)
 2/13-4 | [Matrix Math for Graphics](#21318-matrix-multiplication)
+2/26 | [Transformations](#22618-transformations)
+
+## 2.26.28 Transformations
+- Translations
+  - see below
+- Dilations
+  - (x, y, z) -> (ax, ay, az)
+  - diagonals a w/ 1 in the last. Everything else 0. (Similar to identity matrix)
+  - could make it (x, y, z) -> (ax, by, cz)
+  - will be shifted so translate back
+- Rotation
+  - (x, y)R<sub>theta</sub> -> 
+  - x = rcos(phi)
+  - y = rsin(phi)
+  - x1 = rcos(phi + theta) = rcos(phi)cos(theta) - rsin(phi)sin(theta) = x1 = xcos(theta) - ysin(theta)
+  - y1 = rsin(phi + theta) = rsin(phi)cos(theta) + rcos(phi)sin(theta) = y1 = ycos(theta) + xsin(theta)
 
 ## 2.13.18 Matrix Multiplication
 - A x B ⋅ B x D => A x C
