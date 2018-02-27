@@ -11,9 +11,9 @@ DATE | AIM
 2/7  | [Even More](#other-octants)
 2/12 | [Representing Image Data](#21218-representing-image-data)
 2/13-4 | [Matrix Math for Graphics](#21318-matrix-multiplication)
-2/26 | [Transformations](#22618-transformations)
+2/26-7 | [Transformations](#22618-transformations)
 
-## 2.26.28 Transformations
+## 2.26.18 Transformations
 - Translations
   - see below
 - Dilations
@@ -27,7 +27,28 @@ DATE | AIM
   - y = rsin(phi)
   - x1 = rcos(phi + theta) = rcos(phi)cos(theta) - rsin(phi)sin(theta) = x1 = xcos(theta) - ysin(theta)
   - y1 = rsin(phi + theta) = rsin(phi)cos(theta) + rcos(phi)sin(theta) = y1 = ycos(theta) + xsin(theta)
-
+```
+  |cos  -sin  0   0|  |x|         |xcos - ysin|
+  |sin  cos   0   0|  |y|  ______ |ycos + xsin|
+  |0    0     1   0|  |z|  ______ |     z     |
+  |0    0     0   1|  |1|         |     1     |
+  Rotation of theta degrees about the z-axis
+```
+  - To rotate around another axis just switch em up
+    - To rotate around x, switch x with z
+      - y1 = ycos - zsin
+      - z1 = zcos + ysin
+    - To rotate around y, x becomes vertical and z horizontal
+      - z1 = zcos - xsin
+      - x1 = xcos + zsin
+- Combining Transformations
+  - E<sub>0</sub>: Edges; T: Translate; R: Rotate; S: Scale
+  - T * E<sub>0</sub> = E<sub>1</sub>
+  - R * E<sub>1</sub> = E<sub>2</sub> : Translated, then rotated
+  - S * E<sub>2</sub> = E<sub>3</sub>
+  - E<sub>3</sub> = (S * R * T) * E<sub>0</sub>
+    - 2 4x4s and 1 4xN multiplication--saving a lot of work
+  
 ## 2.13.18 Matrix Multiplication
 - A x B ⋅ B x D => A x C
   - number of rows in second matrix must be equal to the number of columns in the first
