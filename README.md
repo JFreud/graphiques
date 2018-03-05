@@ -12,7 +12,34 @@ DATE | AIM
 2/12 | [Representing Image Data](#21218-representing-image-data)
 2/13-4 | [Matrix Math for Graphics](#21318-matrix-multiplication)
 2/26-7 | [Transformations](#22618-transformations)
+3/5  | [Paremetric Equations](#3518-parametric-equations)
 
+## 3.5.18 Parametric Equations
+- Define a curve with respect to a totally independent variable
+- Define a curve as a system of equations with an independent variable (t)
+  - x = f(t)
+  - y = g(t)
+  - z = h(t)
+- Line (x<sub>0</sub>, y<sub>0</sub>) -> (x<sub>1</sub>, y<sub>1</sub>), t: 0 -> 1
+  - f(t) = (Δx)t + x<sub>0</sub>
+  - g(t) = (Δy)t + y<sub>0</sub>
+- General Parametric Framework
+  - for t: 0 -> 1
+    - x = f(t)
+    - y = g(t)
+    - z = h(t)
+    - add(x, y, z)
+- When lower video game settings -> fewer edges so more angular
+- Circles
+  - x = rcos(theta) + x<sub>c</sub>
+  - y = rsin(theta) + y<sub>c</sub>
+  - theta: 0 -> 2π
+  - theta = 2πt
+- Splines
+  - Splines are designed in such a way that they can smoothly connect curves
+  - We will only use cubic splines
+  - Hermite, Bezier
+  
 ## 2.26.18 Transformations
 - Translations
   - see below
