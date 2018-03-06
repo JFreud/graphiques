@@ -12,7 +12,7 @@ DATE | AIM
 2/12 | [Representing Image Data](#21218-representing-image-data)
 2/13-4 | [Matrix Math for Graphics](#21318-matrix-multiplication)
 2/26-7 | [Transformations](#22618-transformations)
-3/5  | [Paremetric Equations](#3518-parametric-equations)
+3/5-6  | [Paremetric Equations](#3518-parametric-equations)
 
 ## 3.5.18 Parametric Equations
 - Define a curve with respect to a totally independent variable
@@ -39,6 +39,37 @@ DATE | AIM
   - Splines are designed in such a way that they can smoothly connect curves
   - We will only use cubic splines
   - Hermite, Bezier
+- Hermite Curves
+  - Given information
+    - P<sub>0</sub>, P<sub>1</sub>: endpoints
+    - R<sub>0</sub>, R<sub>1</sub>: rates of change @ each endpoint
+    - f(t) = at<sup>3</sup> + bt<sup>2</sup> + ct + d: points on the curve
+    - f'(t) = 3at<sup>2</sup> + 2bt + c: rates of change
+  - Mapping
+    - when t = 0:
+      - f(t) = d: P<sub>0</sub>
+      - f'(t) = c: R<sub>0</sub>
+    - when t = 1:
+      - f(t) = a + b + c + d: P<sub>1</sub>
+      - f'(t) = 3a + 2b + c: R<sub>1</sub>
+      - system of equations
+```
+|0 0 0 1|  |a|         |P0|
+|1 1 1 1|  |b|  _____  |P1|
+|0 0 1 0|  |c|  _____  |R0|
+|3 2 1 0|  |d|         |R1|
+    H       C           G
+```
+  - H * C = G
+  - H<sup>-1</sup> * G = C
+  - will fix later lmao:
+<code>
+|2  -2  1   1|  |x<sub>0</sub>|           |a<sub>x</sub>|
+|-3  3  -2 -1|  |x1| _______              |b<sub>x</sub>|
+|0   0  1   0|  |R0| _______              |c<sub>x</sub>|
+|1   0  0   0|  |R1|                      |d<sub>x</sub>
+      H^-1
+</code>
   
 ## 2.26.18 Transformations
 - Translations
