@@ -63,14 +63,38 @@ DATE | AIM
   - H * C = G
   - H<sup>-1</sup> * G = C
   - will fix later lmao:
-<code>
-|2  -2  1   1|  |x<sub>0</sub>|           |a<sub>x</sub>|
+```
+|2  -2  1   1|  |x0|                      |a<sub>x</sub>|
 |-3  3  -2 -1|  |x1| _______              |b<sub>x</sub>|
 |0   0  1   0|  |R0| _______              |c<sub>x</sub>|
 |1   0  0   0|  |R1|                      |d<sub>x</sub>
       H^-1
-</code>
-  
+```
+- Bezier curves
+  - Name of the game is still what are the coefficients
+  - Curve of degree n needs n + 1 input points
+  - Line
+    - P<sub>0</sub> -> P<sub>1</sub>
+    - P<sub>t</sub> = (1-t)P<sub>0</sub> + tP</sub>1</sub>
+      - As t moves, drags line over; P<sub>1</sub> gets more influence on the line
+      - As t: 0 -> 1, Pt moves along the line
+  - Quadratic
+    - P<sub>0</sub> -> P<sub>1</sub> -> P<sub>2</sub>
+    - Q<sub>0</sub> moves along first line towards Q<sub>1</sub> which goes down on second line (P<sub>1</sub> to P<sub>2</sub>
+    - Q<sub>0</sub> moves linearly along P<sub>0</sub>P<sub>1</sub>
+    - Q<sub>1</sub> moves linearly along P<sub>1</sub>P<sub>2</sub>
+    - Q<sub>t</sub> moves linearly along Q<sub>0</sub>Q<sub>1</sub>
+    - Q<sub>0</sub> = (1 - t)P<sub>0</sub> + tP<sub>1</sub>
+    - Q<sub>1</sub> = (1 - t)P<sub>1</sub> + tP<sub>2</sub>
+    - Q<sub>t</sub> = (1 - t)Q<sub>0</sub> + tQ<sub>1</sub> = (1 - t)<sup>2</sup>P<sub>0</sub> + 2t(1-t)P<sub>1</sub> + t<sup>2</sup>P<sub>2</sub>
+  - Cubic
+    - 4 points: P<sub>0</sub>, P<sub>1</sub>, P<sub>2</sub>, P<sub>3</sub>
+    - R<sub>t</sub> moves linearly along R<sub>0</sub>R<sub>1</sub>
+    - R<sub>0</sub> moves along the quadratic Q<sub>0</sub>Q<sub>1</sub>
+    - R<sub>1</sub> moves along the quadratic Q<sub>1</sub>Q<sub>2</sub>
+    - R<sub>t</sub> = (1-t)R<sub>0</sub> + tR<sub>1</sub> = (1-t)<sup>3</sup>P<sub>0</sub> + 3t(1-t)<sup>2</sup>P<sub>1</sub> + 3t<sup>2</sup>(1-t)P<sub>2</sub> + t<sup>3</sup>P<sub>3</sub>
+    
+
 ## 2.26.18 Transformations
 - Translations
   - see below
