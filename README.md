@@ -12,7 +12,7 @@ DATE | AIM
 2/12 | [Representing Image Data](#21218-representing-image-data)
 2/13-4 | [Matrix Math for Graphics](#21318-matrix-multiplication)
 2/26-7 | [Transformations](#22618-transformations)
-3/5-6  | [Paremetric Equations](#3518-parametric-equations)
+3/5-8  | [Paremetric Equations](#3518-parametric-equations)
 
 ## 3.5.18 Parametric Equations
 - Define a curve with respect to a totally independent variable
@@ -79,6 +79,7 @@ DATE | AIM
       - As t moves, drags line over; P<sub>1</sub> gets more influence on the line
       - As t: 0 -> 1, Pt moves along the line
   - Quadratic
+    - ![Quad Bezier gif](https://upload.wikimedia.org/wikipedia/commons/3/3d/B%C3%A9zier_2_big.gif)
     - P<sub>0</sub> -> P<sub>1</sub> -> P<sub>2</sub>
     - Q<sub>0</sub> moves along first line towards Q<sub>1</sub> which goes down on second line (P<sub>1</sub> to P<sub>2</sub>
     - Q<sub>0</sub> moves linearly along P<sub>0</sub>P<sub>1</sub>
@@ -88,12 +89,28 @@ DATE | AIM
     - Q<sub>1</sub> = (1 - t)P<sub>1</sub> + tP<sub>2</sub>
     - Q<sub>t</sub> = (1 - t)Q<sub>0</sub> + tQ<sub>1</sub> = (1 - t)<sup>2</sup>P<sub>0</sub> + 2t(1-t)P<sub>1</sub> + t<sup>2</sup>P<sub>2</sub>
   - Cubic
+    - ![Cubic Bezier Gif](https://upload.wikimedia.org/wikipedia/commons/d/db/B%C3%A9zier_3_big.gif)
     - 4 points: P<sub>0</sub>, P<sub>1</sub>, P<sub>2</sub>, P<sub>3</sub>
     - R<sub>t</sub> moves linearly along R<sub>0</sub>R<sub>1</sub>
     - R<sub>0</sub> moves along the quadratic Q<sub>0</sub>Q<sub>1</sub>
     - R<sub>1</sub> moves along the quadratic Q<sub>1</sub>Q<sub>2</sub>
     - R<sub>t</sub> = (1-t)R<sub>0</sub> + tR<sub>1</sub> = (1-t)<sup>3</sup>P<sub>0</sub> + 3t(1-t)<sup>2</sup>P<sub>1</sub> + 3t<sup>2</sup>(1-t)P<sub>2</sub> + t<sup>3</sup>P<sub>3</sub>
-    
+      - do it twice for x and y coordinates
+      - expand to (-P<sub>0</sub> + 3P<sub>1</sub> - 3P<sub>2</sub> + P<sub>3</sub>)t<sup>3</sup> + (3P<sub>0</sub> - 6P<sub>1</sub> + 3P<sub>2</sub>)t<sup>2</sup> + (-3P<sub>0</sub> + 3P<sub>1</sub>)t + P<sub>0</sub> 
+        - a = -P<sub>0</sub> + 3P<sub>1</sub> - 3P<sub>2</sub> + P<sub>3</sub>
+        - b = 3P<sub>0</sub> - 6P<sub>1</sub> + 3P<sub>2</sub>
+        - c = -3P<sub>0</sub> + 3P<sub>1</sub>
+        - d = P<sub>0</sub> 
+    - Bezier Matrix
+```
+|-1  3 -3  1 | |P0|         |a|
+| 3 -6  3  0 | |P1| ______  |b|
+|-3  3  0  0 | |P2| ______  |c|
+| 1  0  0  0 | |P3|         |d|
+```
+    - 
+  -![Quint Curve](https://upload.wikimedia.org/wikipedia/commons/0/0b/BezierCurve.gif)
+
 
 ## 2.26.18 Transformations
 - Translations
