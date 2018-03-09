@@ -12,9 +12,9 @@ DATE | AIM
 2/12 | [Representing Image Data](#21218-representing-image-data)
 2/13-4 | [Matrix Math for Graphics](#21318-matrix-multiplication)
 2/26-7 | [Transformations](#22618-transformations)
-3/5-8  | [Paremetric Equations](#3518-parametric-equations)
+3/5-8  | [Curves](#3518-curves)
 
-## 3.5.18 Parametric Equations
+## 3.5.18 Curves
 - Define a curve with respect to a totally independent variable
 - Define a curve as a system of equations with an independent variable (t)
   - x = f(t)
