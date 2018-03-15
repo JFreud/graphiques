@@ -23,63 +23,59 @@ DATE | AIM
     - Height - y
     - Width - x
     - Depth - z
+  - call addEdge twelve times
 - Sphere
   - Defining points: points along a surface
   - Given:
     - Center
     - Radius
-  - Generate a sphere by rotating a circle
+  - There are a couple of ways to draw sphere. Our options are:
+    1. Draw a circle and rotate 180 degrees
+    2. Draw a semi-circle and rotate it 360 degrees (this is the better option).
+  - call addCircle and rotate it
+    - If you rotate about the z-axis, there is no 3D shape. Rotate about the x or y-axis.  
+  - rotating around x-axis and y-axis will give sphere, rotating around z-axis will not
+  - x = rcosθ 
+  - y = rsinθcosϕ
+  - z = rsinθsinϕ
   x-rotation: (theta is angle of circle creation, phi is angle of circle rotation)
 ```
-|1    0         0    |  |rcos(theta)|            |rcos(theta) + cx        |
-|0 cos(phi) -sin(phi)|  |rsin(theta)|      =     |rsin(theta)cos(phi) + cy|
-|0 sin(phi)  cos(phi)|  |     0     |            |rsin(theta)sin(phi) + cz|
+| 1  0      0  |   | rcosθ |   | x |   |rcosθ + cx    |
+| 0 cosϕ -sinϕ | · | rsinθ | = | y | = |rsinθcosϕ + cy|
+| 0 sinϕ  cosϕ |   |   0   |   | z |   |rsinθsinϕ + cz|
 ```
   - theta 0 -> 2pi, phi 0 -> pi (rotating circle)
   - theta 0 -> pi, phi 0 -> 2pi (rotating semicircle)
+  - Pseudo-code
 ```
-- Phi =  Ф
-Theta = θ
-
-Sphere
-X = rcosθ 	+ cx
-Y = rsinθcosФ + cy
-Z = rsinθsinθ 	+ cz
-
-θ : Ф -> pi
-Ф : θ -> 2pi
-
-For Ф : Ø -> 2pi (rotation)
-
-For θ :  Ø -> pi
-	X = rcosθ + cx
-	Y = rsinθcosФ + cy
-	Z = rsinθsinФ + cz
-	(semicircle)
-
-Torus
-Defining Points
-	- Points on the surface
-
-Given
-	r
-	R
-	cx,cy,cz 
-Generate the points by translating a circle and then rotating.
-If we translate over x, rotate about y
-If we translate over y, rotate about x
-
-Circle* (+ R/translation)
-[ rcosθ + R ]
-[ rsinθ + R  ]
-[        θ	       ]	 
-
-Y-rotation			Circle*			Torus
-[ cosФ 0 sinФ  ]		[ rcosθ + R ]		cosФ(rcosθ + R)
-[ 0	1      0   ]	*	[ rsinθ + R ]	=	rsinθ + R 
-[ -sinФ 0 cosФ ]		[    θ	    ]		-sinФ(rcosθ + R)
-                                    Θ:0 -> 2pi, Ф:0 -> 2pi
+for (ϕ: 0 -> 2π) {
+    for (θ: 0 -> π) { // Semicircle
+        x = rcosθ + cx
+		y = rsinθcosϕ + cy
+		z = rsinθsinϕ + cz
+	}
+}
 ```
+- Torus
+  - **Defining points:** Points on surface
+  - **Given:** r (radius of cross section), R (radius of torus edge to center), cx, cy, cz
+  - Generate the image by translating a circle and rotating it.  
+  - If we move over x, rotate about y.  
+  - If we move over y, rotate about x. 
+```
+Circle (+ R/translation)
+[  rcosθ (+ R)  ]
+[  rsinθ (+ R)  ]
+[       θ       ]
+
+    y-rotation          circle               torus
+|  cosϕ  0  sinϕ |  | rcosθ + R |   |  cosϕ(rcosθ + R) + cx |   | x |
+|   0    1    0  |  |   rsinθ   | = |      rsinθ + cy       | = | y |
+| -sinϕ  0  cosϕ |  |     0     |   | -sinϕ(rcosθ + R) + cz |   | z |
+```
+  - θ = 0 -> 2π  
+  - ϕ = 0 -> 2π
+
 ## 3.5.18 Curves
 - Define a curve with respect to a totally independent variable
 - Define a curve as a system of equations with an independent variable (t)
