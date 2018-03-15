@@ -51,9 +51,9 @@ DATE | AIM
 for (ϕ: 0 -> 2π) {
     for (θ: 0 -> π) { // Semicircle
         x = rcosθ + cx
-		y = rsinθcosϕ + cy
-		z = rsinθsinϕ + cz
-	}
+	      y = rsinθcosϕ + cy
+	      z = rsinθsinϕ + cz
+    }
 }
 ```
 - Torus
