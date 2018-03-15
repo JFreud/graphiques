@@ -13,7 +13,73 @@ DATE | AIM
 2/13-4 | [Matrix Math for Graphics](#21318-matrix-multiplication)
 2/26-7 | [Transformations](#22618-transformations)
 3/5-8  | [Curves](#3518-curves)
+3/13 | [3D Shapes](#31318-3d)
 
+## 3.13.18 3D
+- Box
+  - Defining points: vertices
+  - Given:
+    - P0 (top left front)
+    - Height - y
+    - Width - x
+    - Depth - z
+- Sphere
+  - Defining points: points along a surface
+  - Given:
+    - Center
+    - Radius
+  - Generate a sphere by rotating a circle
+  x-rotation: (theta is angle of circle creation, phi is angle of circle rotation)
+```
+|1    0         0    |  |rcos(theta)|            |rcos(theta) + cx        |
+|0 cos(phi) -sin(phi)|  |rsin(theta)|      =     |rsin(theta)cos(phi) + cy|
+|0 sin(phi)  cos(phi)|  |     0     |            |rsin(theta)sin(phi) + cz|
+```
+  - theta 0 -> 2pi, phi 0 -> pi (rotating circle)
+  - theta 0 -> pi, phi 0 -> 2pi (rotating semicircle)
+```
+- Phi =  Ф
+Theta = θ
+
+Sphere
+X = rcosθ 	+ cx
+Y = rsinθcosФ + cy
+Z = rsinθsinθ 	+ cz
+
+θ : Ф -> pi
+Ф : θ -> 2pi
+
+For Ф : Ø -> 2pi (rotation)
+
+For θ :  Ø -> pi
+	X = rcosθ + cx
+	Y = rsinθcosФ + cy
+	Z = rsinθsinФ + cz
+	(semicircle)
+
+Torus
+Defining Points
+	- Points on the surface
+
+Given
+	r
+	R
+	cx,cy,cz 
+Generate the points by translating a circle and then rotating.
+If we translate over x, rotate about y
+If we translate over y, rotate about x
+
+Circle* (+ R/translation)
+[ rcosθ + R ]
+[ rsinθ + R  ]
+[        θ	       ]	 
+
+Y-rotation			Circle*			Torus
+[ cosФ 0 sinФ  ]		[ rcosθ + R ]		cosФ(rcosθ + R)
+[ 0	1      0   ]	*	[ rsinθ + R ]	=	rsinθ + R 
+[ -sinФ 0 cosФ ]		[    θ	    ]		-sinФ(rcosθ + R)
+                                    Θ:0 -> 2pi, Ф:0 -> 2pi
+```
 ## 3.5.18 Curves
 - Define a curve with respect to a totally independent variable
 - Define a curve as a system of equations with an independent variable (t)
