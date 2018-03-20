@@ -14,6 +14,28 @@ DATE | AIM
 2/26-7 | [Transformations](#22618-transformations)
 3/5-8  | [Curves](#3518-curves)
 3/13 | [3D Shapes](#31318-3d)
+3/20 | [Vector Math](#32018-vector-math-review)
+
+## 3.20.18 Vector Math Review
+- Vectors have magnitude and direction
+  - (x, y, z) vs <x, y, z>
+- Magnitude ||A|| = √(Ax<sup>2</sup> + Ay<sup>2</sup> + Az<sup>2</sup>)
+- Normalized vector is a unit vector 
+  - A<sub>hat</sub> = 1/||A|| <A<sub>x</sub>, A<sub>y</sub>, A<sub>z</sub>>
+- Dot Product
+  - ![Dot Product Image](https://betterexplained.com/wp-content/uploads/dotproduct/dot_product_components.png)
+  - Gives scalar number back, not vector
+  - Multiply one magnitude by another. Influence of each magnitude on resulting product depends on angle between vectors.
+  - since cosine is inverse with angle size:
+    - A • B = ||B|| ||A|| cosθ
+    - A • B = A<sub>x</sub>B<sub>x</sub> + A<sub>y</sub>B<sub>y</sub> + A<sub>z</sub>B<sub>z</sub>
+  - You can get cosine by taking the dot product
+- Cross Product
+  - Results in vector ⟂ to both A and B
+  - ![Cross Product Image](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Cross_product_parallelogram.svg/220px-Cross_product_parallelogram.svg.png)
+  - Area of triangle is ||A|| ||B|| sinθ
+  - There are two N vectors ⟂
+    
 
 ## 3.13.18 3D
 - Box
