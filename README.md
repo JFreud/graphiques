@@ -15,6 +15,29 @@ DATE | AIM
 3/5-8  | [Curves](#3518-curves)
 3/13 | [3D Shapes](#31318-3d)
 3/20 | [Vector Math](#32018-vector-math-review)
+3/28 | [Backface Culling](#32818-backface-culling)
+
+## 3.28.18 Backface Culling
+- Only drawing the polygons that are forward-facing.
+- N: surface normal ⟂ to the surface
+- ![Surface Normal Image](https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Surface_normal_illustration.svg/220px-Surface_normal_illustration.svg.png)
+- V: view vector (vector from the surface to the "viewer/eye/camera"
+- ![Second Surface Normal Image](http://archive.gamedev.net/archive/reference/articles/codex/culling.gif)
+- Can't see anything greater than 90° away from you.
+1. Calculate N
+  - Cross product P0 to P1 (vector A) and P0 to P2 (vector B)
+  - N = A x B
+  - A = <P<sub>1</sub> - P<sub>0</sub>>
+  - B = <P<sub>2</sub> - P<sub>0</sub>>
+2. Find θ
+  - N • V = ||N|| ||V|| cosθ
+  - cosθ > 0 if -90° < θ < 90°
+  - magnitudes always positive
+  - V = <0, 0, 1>
+  - N = <x, y, z>
+  - All you need is sine of z component
+    - z tells us what direction in z the polygon is facing, we don't care about x and y
+3. If -90° < θ < 90° or dot product > 0, draw polygon.
 
 ## 3.20.18 Vector Math Review
 - Vectors have magnitude and direction
@@ -35,7 +58,27 @@ DATE | AIM
   - ![Cross Product Image](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Cross_product_parallelogram.svg/220px-Cross_product_parallelogram.svg.png)
   - Area of triangle is ||A|| ||B|| sinθ
   - There are two N vectors ⟂
-    
+  - Vector Math
+Cross Product
+A x B
+
+Wireframe Mesh
+shape is defined by connecting points on the surface with edges
+defines 3d object using lines
+generate_sphere -> add_sphere -> add_edge -> add_point
+instead of connecting point to self, connect points to other points | draw_lines -> draw_line
+
+need surface
+
+
+Polygon Mesh
+shape is defined by connecting points on surface with polygons (planes) instead of edges (triangles/quadrilaterals)
+generate_sphere - add_sphere -> add_polygons/triangles -> add_point | draw_polygons -> draw_line
+
+Edge Matrix
+Polygon Matrix
+instead of storing lines 2 points at a time, store triangles three points at a time
+[P0,P1,P2,   P2,P3,P4] <- two triangles that share vertices at P2 ‘
 
 ## 3.13.18 3D
 - Box
