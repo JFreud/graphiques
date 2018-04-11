@@ -16,7 +16,29 @@ DATE | AIM
 3/13 | [3D Shapes](#31318-3d)
 3/20 | [Vector Math](#32018-vector-math-review)
 3/28 | [Backface Culling](#32818-backface-culling)
+4/11 | [Relative Coordinates](#41118-relative-coordinate-system)
 
+## 4.11.18 Relative Coordinate System
+- Currently, we generate triangles/edges first and then apply transformations to those matrices.
+  - but tis makes drawing hard
+- In an RCS, transformations are applied to the "current", coordinate system, which modifies shapes as soon as they are generated.
+  - E.g. rotate the world, then move it, then draw the sphere 
+```
+|1 0 0 0|     |2 0 0 3|
+|0 1 0 0| ___ |0 2 0 1|
+|0 0 1 0| ___ |0 0 2 0|
+|0 0 0 1|     |0 0 0 1|
+    A             B
+```
+### Drawing in an RCS
+1. Generate polygons/edges
+2. Modify those points by the current coordinate system
+3. Draw to the image
+- gain fully independent control of the shapes in our scene
+- but if you draw smth like a robot, you don't want independent control. You want to modify them all together.
+  
+  
+  
 ## 3.28.18 Backface Culling
 - Only drawing the polygons that are forward-facing.
 - N: surface normal ⟂ to the surface
