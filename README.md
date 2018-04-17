@@ -17,6 +17,23 @@ DATE | AIM
 3/20 | [Vector Math](#32018-vector-math-review)
 3/28 | [Backface Culling](#32818-backface-culling)
 4/11 | [Relative Coordinates](#41118-relative-coordinate-system)
+4/17 | [Scanline Conversion](#41718-scanline-conversion)
+
+## 4.17.18 Scanline Conversion
+- Filling in a polygon by drawing consecutive horizontal (or vertical) lines
+- Need to find the top, bottom, and middle vertices.
+- Need to find the endpoints of each scanline.
+  - y starts at: y<sub>B</sub>
+  - y ends at: y<sub>T</sub>
+  - y += 1
+  - x will always be on edge of triangle
+  - x<sub>0</sub> starts at: x<sub>B</sub>
+  - x<sub>0</sub> ends at: x<sub>T</sub>
+  - x0 += Δ0
+  - x<sub>1</sub> starts at: x<sub>B</sub>
+  - x<sub>1</sub> ends at: x<sub>T</sub>
+  - x<sub>1</sub> changes at M (from edge BM to MT)
+  - x<sub>1</sub> += Δ1*
 
 ## 4.11.18 Relative Coordinate System
 - Currently, we generate triangles/edges first and then apply transformations to those matrices.
@@ -60,6 +77,8 @@ DATE | AIM
   - All you need is sine of z component
     - z tells us what direction in z the polygon is facing, we don't care about x and y
 3. If -90° < θ < 90° or dot product > 0, draw polygon.
+- Make a stack of coordinate systems
+- Like Processing push and pop matrix
 
 ## 3.20.18 Vector Math Review
 - Vectors have magnitude and direction
