@@ -17,7 +17,7 @@ DATE | AIM
 3/20 | [Vector Math](#32018-vector-math-review)
 3/28 | [Backface Culling](#32818-backface-culling)
 4/11 | [Relative Coordinates](#41118-relative-coordinate-system)
-4/17 | [Scanline Conversion](#41718-scanline-conversion)
+4/17 | [Filling in colors](#41718-scanline-conversion)
 
 ## 4.17.18 Scanline Conversion
 - Filling in a polygon by drawing consecutive horizontal (or vertical) lines
@@ -30,10 +30,24 @@ DATE | AIM
   - x<sub>0</sub> starts at: x<sub>B</sub>
   - x<sub>0</sub> ends at: x<sub>T</sub>
   - x0 += Δ0
+    - Δ0 = (x<sub>T</sub> - x<sub>B</sub>) / (y<sub>T</sub> - y<sub>B</sub>)
   - x<sub>1</sub> starts at: x<sub>B</sub>
   - x<sub>1</sub> ends at: x<sub>T</sub>
   - x<sub>1</sub> changes at M (from edge BM to MT)
-  - x<sub>1</sub> += Δ1*
+    - x<sub>1</sub> on BM until y = y<sub>M</sub>, then on MT
+  - x<sub>1</sub> += Δ1
+    - Δ1 = (x<sub>M</sub> - x<sub>B</sub>) / (y<sub>M</sub> - y<sub>B</sub>)
+    - or Δ1 = (x<sub>T</sub> - x<sub>M</sub>) / (y<sub>T</sub> - y<sub>M</sub>)
+- what if M is on the same horizontal as T or B?
+  - not a special case because x<sub>1</sub> flip condition is based off of y value
+- no special cases for scanline conversion
+- make sure not dividing by zero ( check x = x<sub>M</sub> )
+- will not fill in triangles in front or behind because we're not drawing by z-value but by order of shapes listed
+## 4.18.18 Z-Buffering
+- not polygon by polygon determination, it's pixel by pixel
+- Create a 2-D array of floating point values, where each entry corresponds to a pixel in the screen
+- We store the z-values of every plotted pixel in this array
+- We check new z-values against the z-buffer before plotting
 
 ## 4.11.18 Relative Coordinate System
 - Currently, we generate triangles/edges first and then apply transformations to those matrices.
@@ -53,7 +67,8 @@ DATE | AIM
 3. Draw to the image
 - gain fully independent control of the shapes in our scene
 - but if you draw smth like a robot, you don't want independent control. You want to modify them all together.
-  
+- Make a stack of coordinate systems
+- Like Processing push and pop matrix
   
   
 ## 3.28.18 Backface Culling
@@ -77,8 +92,7 @@ DATE | AIM
   - All you need is sine of z component
     - z tells us what direction in z the polygon is facing, we don't care about x and y
 3. If -90° < θ < 90° or dot product > 0, draw polygon.
-- Make a stack of coordinate systems
-- Like Processing push and pop matrix
+
 
 ## 3.20.18 Vector Math Review
 - Vectors have magnitude and direction
