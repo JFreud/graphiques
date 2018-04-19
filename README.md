@@ -19,6 +19,7 @@ DATE | AIM
 4/11 | [Relative Coordinates](#41118-relative-coordinate-system)
 4/17 | [Filling in colors](#41718-scanline-conversion)
 
+
 ## 4.17.18 Scanline Conversion
 - Filling in a polygon by drawing consecutive horizontal (or vertical) lines
 - Need to find the top, bottom, and middle vertices.
@@ -45,9 +46,13 @@ DATE | AIM
 - will not fill in triangles in front or behind because we're not drawing by z-value but by order of shapes listed
 ## 4.18.18 Z-Buffering
 - not polygon by polygon determination, it's pixel by pixel
-- Create a 2-D array of floating point values, where each entry corresponds to a pixel in the screen
+- Create a 2-D array of floating point values, where each entry directly corresponds to a pixel on the screen
 - We store the z-values of every plotted pixel in this array
 - We check new z-values against the z-buffer before plotting
+- Initialize z-buffer with most negative value possible (theoretically negative infinity but use lowest possible long value in C)
+- draw_line needs to generate z values
+- scanline conversion needs to generate z values
+- plot needs to look at/modify z buffer
 
 ## 4.11.18 Relative Coordinate System
 - Currently, we generate triangles/edges first and then apply transformations to those matrices.
