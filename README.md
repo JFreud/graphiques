@@ -18,7 +18,33 @@ DATE | AIM
 3/28 | [Backface Culling](#32818-backface-culling)
 4/11 | [Relative Coordinates](#41118-relative-coordinate-system)
 4/17 | [Filling in colors](#41718-scanline-conversion)
+4/26 | [Lighting] (#42618-lighting)
 
+## 4.26.18 Lighting
+- colors are reflected--must be simulated
+- The color of an object is based on:
+  1. The refelective properties of the object
+  2. The color, intensity, and location of any light sources
+- Types of light sources:
+  - Ambient
+    - General light in an image
+    - Comes from all locations equally
+  - Point
+    - Comes from a specific location (for our purposes really far away so that if we move it'll have same relation e.g. sun)
+- Phong Reflection Model
+  - Models real world reflection by breaking reflection into 3 parts: Ambient, Diffuse, Specular
+  - I = Ambient + Diffuse + Specular
+  - Diffuse and Specular are point sources
+  - Ambient Reflection
+    - A : Ambient light (0 - 255)
+    - K<sub>a</sub> : Constant of ambient reflection (0 - 1)
+    - Ambient = A * K<sub>a</sub> (do this 3 times for rgb)
+  - Diffuse Reflection
+    - Reflection of a point source
+    - Light is reflected back evenly in all directions
+    - matte/dull objects (not shiny)
+    
+    
 
 ## 4.17.18 Scanline Conversion
 - Filling in a polygon by drawing consecutive horizontal (or vertical) lines
