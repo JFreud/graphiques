@@ -31,18 +31,36 @@ DATE | AIM
     - Comes from all locations equally
   - Point
     - Comes from a specific location (for our purposes really far away so that if we move it'll have same relation e.g. sun)
-- Phong Reflection Model
-  - Models real world reflection by breaking reflection into 3 parts: Ambient, Diffuse, Specular
-  - I = Ambient + Diffuse + Specular
-  - Diffuse and Specular are point sources
-  - Ambient Reflection
-    - A : Ambient light (0 - 255)
-    - K<sub>a</sub> : Constant of ambient reflection (0 - 1)
-    - Ambient = A * K<sub>a</sub> (do this 3 times for rgb)
-  - Diffuse Reflection
-    - Reflection of a point source
-    - Light is reflected back evenly in all directions
-    - matte/dull objects (not shiny)
+### Phong Reflection Model
+- Models real world reflection by breaking reflection into 3 parts: Ambient, Diffuse, Specular
+- I = Ambient + Diffuse + Specular
+- Diffuse and Specular are point sources
+- Ambient Reflection
+  - A : Ambient light (0 - 255)
+  - K<sub>a</sub> : Constant of ambient reflection (0 - 1)
+  - Ambient = A * K<sub>a</sub> (do this 3 times for rgb)
+  - ![Diagram of Reflections](https://upload.wikimedia.org/wikipedia/commons/b/bd/Lambert2.gif)
+- Diffuse Reflection
+  - Reflection of a point source
+  - Light is reflected back evenly in all directions
+  - matte/dull objects (not shiny)
+  - L: vector from surface to light (θ between N (normal) and L)
+  - cosθ = N • L (percentage of reflection that we get from the relationship between the surface and the light)
+  - P: point light color
+  - K<sub>d</sub>: Constant of diffuse reflection (0-1)
+  - Diffuse = PK<sub>d</sub>(N • L)
+- Specular Reflection
+  - Reflects a point source in a specific direction
+  - Models glossy/shiny surfaces
+  - Strength of specular reflection is based on:
+    - The angle between R and V (∝)
+    - The angle between L and N (θ)
+  - We want R • V
+  - Let T be projection of L onto N
+  - R = T • S (leg of triange formed between y-axis and R)
+  - S = T - L
+  - R = T + T - L
+  - I = AK<sub>a</sub> + PK<sub>d</sub>(N • L) + S
     
     
 
