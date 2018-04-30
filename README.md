@@ -53,14 +53,25 @@ DATE | AIM
   - Reflects a point source in a specific direction
   - Models glossy/shiny surfaces
   - Strength of specular reflection is based on:
-    - The angle between R and V (∝)
+    - The angle between R and V (∝) <- the one we care about
     - The angle between L and N (θ)
   - We want R • V
   - Let T be projection of L onto N
   - R = T • S (leg of triange formed between y-axis and R)
   - S = T - L
-  - R = T + T - L
+  - R = T + T - L = 2T - L
   - I = AK<sub>a</sub> + PK<sub>d</sub>(N • L) + S
+  - cos∝: R • V
+  - cosθ = L • N
+  - cosθ = ||T|| / ||L|| = ||T||
+  - T = ||T||(N)
+  - T = (L • N)N
+  - R = 2(N • L)N - L
+  - cos∝ = [2(N • L)N - L] • V (costly to compute)
+  - Specular = PK<sub>s</sub>([2(N • L)N - L] • V)<sup>x</sup>
+  - x: arbitrary exponent used to simulate how quickly the reflection decreases
+  	- no set value for x, just try it (e.g. 4)
+  - I = AK<sub>a</sub> + PK<sub>d</sub>(N • L) + PK<sub>s</sub>([2(N • L)N - L] • V)<sup>x</sup>
     
     
 
