@@ -19,6 +19,38 @@ DATE | AIM
 4/11 | [Relative Coordinates](#41118-relative-coordinate-system)
 4/17 | [Filling in colors](#41718-scanline-conversion)
 4/26 | [Lighting](#42618-lighting)
+5/7  | [Compilers](#50718-compilers)
+
+## 5.07.18 Compilers
+- source code -> executable
+#### 5 pieces
+1. Lexer
+2. Syntactic Analyzer
+3. Semantic Analyzer
+4. Optimizer*
+5. Code Generator
+###### * might not always be there
+#### Lexer
+- Performs Lexical Analysis
+- Look at code and find meaningful code symbols, does not interpret code
+- "Knows" the valid keywords, literal formats, and identifier formats.
+- Does not perform any structural analysis 
+- Outputs a list of tokens from your source code
+```
+code                   token list
+int main() {          |int
+  long x = 5 + 6;  -> |main
+  printf("%d", x);    |(
+  return 0;           |)
+}                     |{
+                      |long
+                      |x
+                      |5
+                      |+
+                      |6
+                      |;
+                      |etc... 
+```
 
 ## 4.26.18 Lighting
 - colors are reflected--must be simulated
