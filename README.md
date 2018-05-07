@@ -18,7 +18,7 @@ DATE | AIM
 3/28 | [Backface Culling](#32818-backface-culling)
 4/11 | [Relative Coordinates](#41118-relative-coordinate-system)
 4/17 | [Filling in colors](#41718-scanline-conversion)
-4/26 | [Lighting] (#42618-lighting)
+4/26 | [Lighting](#42618-lighting)
 
 ## 4.26.18 Lighting
 - colors are reflected--must be simulated
