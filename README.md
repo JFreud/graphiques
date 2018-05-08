@@ -36,6 +36,9 @@ DATE | AIM
 - "Knows" the valid keywords, literal formats, and identifier formats.
 - Does not perform any structural analysis 
 - Outputs a list of tokens from your source code
+- tools: c-lex, flex (free lex), javacc
+- matches with language definition
+- reg expressions 
 ```
 code                   token list
 int main() {          |int
@@ -51,6 +54,26 @@ int main() {          |int
                       |;
                       |etc... 
 ```
+##### Types of Language tokens
+- grouping symbols (;,{},(),:,\t,...)
+- operators
+- identifiers (variable names, function names)
+- keywords
+- literals
+- comments (will get skipped over)
+
+#### Parser
+- forms syntax tree (groups tokens)
+![syntax tree](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Abstract_syntax_tree_for_Euclidean_algorithm.svg/400px-Abstract_syntax_tree_for_Euclidean_algorithm.svg.png)
+- 
+
+| Name  | Input       | Output     |
+|-------|-------------|------------|
+| lexer | source code | token list |
+| parser | token list | syntax tree |
+|       |             |            |
+
+
 
 ## 4.26.18 Lighting
 - colors are reflected--must be simulated
