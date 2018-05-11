@@ -36,7 +36,7 @@ DATE | AIM
 - "Knows" the valid keywords, literal formats, and identifier formats.
 - Does not perform any structural analysis 
 - Outputs a list of tokens from your source code
-- tools: c-lex, flex (free lex), javacc
+- tools: lex, flex (free lex), javacc
 - matches with language definition
 - reg expressions 
 ```
@@ -65,14 +65,40 @@ int main() {          |int
 #### Parser
 - forms syntax tree (groups tokens)
 ![syntax tree](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Abstract_syntax_tree_for_Euclidean_algorithm.svg/400px-Abstract_syntax_tree_for_Euclidean_algorithm.svg.png)
-- 
+- performs syntax analysis
+- checks token list for valid structure
+- know the grammar of the language
+- outputs a syntax tree
+- Tools: yacc (compiler compiler), bison, javacc
+
+#### Semantic Analyzer
+- Evaluate the parse tree to create a list of instructions that represent the program.
+- Create a list of identifiers and associated information (symbol table)
+- Type mismatches are caught as the symbol table is created.
+- Outputs the operation list and symbol table
+- Also using yacc/bison (for C at least)
+
+#### Optimizer
+- Not always there
+- Looks through operation list and looks if it can replace pattern or series with more efficient one
+- Rewrites how you did things
+- Some compilers more aggressive than others
+
+#### Code Generator
+- Translate the operation list and the symbol table to translate into the binary assembly code.
+- Creates the actual machine instructions
+- Calls the image creation/manipulation functions
+
 
 | Name  | Input       | Output     |
 |-------|-------------|------------|
 | lexer | source code | token list |
 | parser | token list | syntax tree |
-|       |             |            |
+| Semantic Analyzer | Syntax Tree | Operation List and Symbol Table |
+| Optimizer | Operation List and Symbol Table | Optimized Operation List and symbol table |
+| Code Generator | Optimized Operation list and Symbol table | Binary Executable |
 
+Image Code -> Token List -> Syntax Tree -> Operation List + Symbol Table -> image(s)
 
 
 ## 4.26.18 Lighting
