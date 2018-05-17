@@ -20,6 +20,29 @@ DATE | AIM
 4/17 | [Filling in colors](#41718-scanline-conversion)
 4/26 | [Lighting](#42618-lighting)
 5/7  | [Compilers](#50718-compilers)
+5/17 | [Animation](#51718-animation)
+
+## 5.17.18 Animation
+- Generate multiple frames with small differences between each.
+- Applying transformations over time
+- move by percentage each frame
+```
+move 400 0 0 (m0) <- knob
+
+move 400 0 0 (0.0)
+move 400 0 0 (.25)
+move 400 0 0 (.50)
+move 400 0 0 (.75)
+move 400 0 0 (1.0)
+```
+- these be knobs (cuz dialing the transformation)
+- we want knob to start at 0 and end at 1 + vary based on number of frames
+- next variable is: vary
+  - define knob behavior
+  - knob: m0; start frame: 0; end frame: 4; start value: 0; end value: 1;
+  - # of total frames
+
+
 
 ## 5.07.18 Compilers
 - source code -> executable
