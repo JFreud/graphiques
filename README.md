@@ -41,7 +41,20 @@ move 400 0 0 (1.0)
   - define knob behavior
   - knob: m0; start frame: 0; end frame: 4; start value: 0; end value: 1;
   - # of total frames
-
+- default framerate gif: 100fps
+- ```convert -delay <val> anim/rolling0* rollin.gif```
+- 100/val = fps
+- If there is a knob, lookup its value and apply it to the arguments.
+- basename _name_
+  - set a basename variable (global...)
+- frames _#_
+  - set a frame # variable
+- vary _knob_ _start_frame_ _end_frame_ _start_val_ _end_val_
+  - Compute and store the knob value for each frame
+#### 3-Pass Animation Framework
+1. Look for _frames_ _basename_ and _vary_ <br> Set frames and basename; use default basename if none is provided <br> If vary is present without frames, stop.
+2. For each vary command <br> Compute and store every frame knob value
+3. Normal drawing pass with: <br> Repeat loop for each frame <br> Update knob values in symbol table <br> If animating, save at the end of each loop, create animation at final end
 
 
 ## 5.07.18 Compilers
