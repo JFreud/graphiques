@@ -21,6 +21,25 @@ DATE | AIM
 4/26 | [Lighting](#42618-lighting)
 5/7  | [Compilers](#50718-compilers)
 5/17 | [Animation](#51718-animation)
+5/21 | [3-Pass](#52118-3-pass)
+
+## 5.21.18 3-Pass
+1. Setup
+2. Vary
+3. Draw
+
+__Structure for Storing Knob Values__
+```
+Frame
+0 | m0: 0 -> r1: 1 ...
+1 | m0: 1 -> r1: .75 ...
+2 |
+3 |
+4 |
+5 |
+6 |
+```
+
 
 ## 5.17.18 Animation
 - Generate multiple frames with small differences between each.
