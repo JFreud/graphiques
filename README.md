@@ -29,7 +29,19 @@ DATE | AIM
 - Shading model is how often we calculate the color
 - You can use different shading models with reflection models
 - How/When we calculate the color for our shapes.
-- Flat shading
+- Flat shading (what we're using right now)
+  - Calculate I once per polygon
+- Gouraud Shading
+  - Calculate I three times per polygon (at the vertices)
+  - Interpolate I in scanline conversion and draw line.
+- Phong Shading model
+  - Calculate I once per pixel
+  - Interpolate the vertex normal in scanline conversion and draw line.
+- strip the drawline, don't need y anymore because in scanline it is constant.
+- Calculating surface normals for Gourand & Phong Shading
+  - Every point on a polygon has the same surface normal
+  - Vertex Normal
+    - Normal value calculated by combining the surface normals of all polygons that share the same vertex.
 
 ## 5.21.18 3-Pass
 1. Setup
