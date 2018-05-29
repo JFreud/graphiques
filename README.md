@@ -22,6 +22,14 @@ DATE | AIM
 5/7  | [Compilers](#50718-compilers)
 5/17 | [Animation](#51718-animation)
 5/21 | [3-Pass](#52118-3-pass)
+5/29 | [Shading Models](#52918-shading-models)
+
+## 5.29.18 Shading Models
+- Phong Reflection is a lighting model
+- Shading model is how often we calculate the color
+- You can use different shading models with reflection models
+- How/When we calculate the color for our shapes.
+- Flat shading
 
 ## 5.21.18 3-Pass
 1. Setup
