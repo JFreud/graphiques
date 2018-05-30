@@ -42,7 +42,11 @@ DATE | AIM
   - Every point on a polygon has the same surface normal
   - Vertex Normal
     - Normal value calculated by combining the surface normals of all polygons that share the same vertex.
-
+  - Create a hash table of vertices: normals update as soon as you go through polygon list.
+  - At the end, we will normalize all the vertex normals
+  	- Specular hglighting skewed based on size of box.
+  - We should normazlize  the surface normals before addig them to the vertex normal
+  
 ## 5.21.18 3-Pass
 1. Setup
 2. Vary
